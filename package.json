@@ -1,0 +1,24 @@
+{
+  "name": "soccer-standings-scraper",
+  "version": "1.0.0",
+  "description": "Jリーグとプレミアリーグの順位表をスクレイピングするサーバー",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "soccer",
+    "scraping",
+    "standings"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5"
+  }
+}
+

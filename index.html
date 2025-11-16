@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLサンプルページ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">サンプルサイト</h1>
+                <ul class="nav-menu">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#about">について</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#standings">順位表</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>ようこそ</h2>
+                <p>これはHTML開発のサンプルページです</p>
+                <button class="btn-primary" onclick="showMessage()">クリックしてください</button>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>このサイトについて</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>モダンなデザイン</h3>
+                        <p>レスポンシブで美しいUIを実装しています</p>
+                    </div>
+                    <div class="card">
+                        <h3>使いやすい</h3>
+                        <p>直感的なナビゲーションとユーザーフレンドリーなインターフェース</p>
+                    </div>
+                    <div class="card">
+                        <h3>高速</h3>
+                        <p>最適化されたコードで高速な読み込みを実現</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section section-alt">
+            <div class="container">
+                <h2>サービス</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <span class="service-icon">🎨</span>
+                        <h3>Webデザイン</h3>
+                        <p>美しく機能的なWebサイトをデザインします</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">💻</span>
+                        <h3>開発</h3>
+                        <p>モダンな技術スタックで開発を行います</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">📱</span>
+                        <h3>モバイル対応</h3>
+                        <p>あらゆるデバイスで快適に閲覧できます</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="standings" class="section">
+            <div class="container">
+                <h2>サッカー順位表</h2>
+                <div class="league-switcher">
+                    <button class="league-btn active" onclick="showLeague('jleague')">Jリーグ</button>
+                    <button class="league-btn" onclick="showLeague('premier')">プレミアリーグ</button>
+                </div>
+                
+                <div id="jleague-table" class="standings-table active">
+                    <h3>J1リーグ 順位表</h3>
+                    <div id="jleague-loading" class="loading-message" style="display: none;">
+                        <p>最新データを取得中...</p>
+                    </div>
+                    <table class="standings">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th>チーム名</th>
+                                <th>試合</th>
+                                <th>勝</th>
+                                <th>分</th>
+                                <th>負</th>
+                                <th>得点</th>
+                                <th>失点</th>
+                                <th>得失点差</th>
+                                <th>勝点</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jleague-tbody">
+                            <!-- JavaScriptで動的に生成 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="premier-table" class="standings-table">
+                    <h3>プレミアリーグ 順位表</h3>
+                    <div id="premier-loading" class="loading-message" style="display: none;">
+                        <p>最新データを取得中...</p>
+                    </div>
+                    <table class="standings">
+                        <thead>
+                            <tr>
+                                <th>順位</th>
+                                <th>チーム名</th>
+                                <th>試合</th>
+                                <th>勝</th>
+                                <th>分</th>
+                                <th>負</th>
+                                <th>得点</th>
+                                <th>失点</th>
+                                <th>得失点差</th>
+                                <th>勝点</th>
+                            </tr>
+                        </thead>
+                        <tbody id="premier-tbody">
+                            <!-- JavaScriptで動的に生成 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <h2>お問い合わせ</h2>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">メッセージ</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">送信</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 サンプルサイト. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

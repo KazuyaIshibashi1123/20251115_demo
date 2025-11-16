@@ -130,101 +130,26 @@ function showLeague(league) {
 
 // 順位表を初期化
 function initializeStandings() {
-    // まずサンプルデータを表示
+    // サンプルデータを表示（GitHub Pages用：静的サイト）
     renderStandings('jleague', jleagueData);
     renderStandings('premier', premierLeagueData);
     
-    // 実際のデータを取得を試みる
-    loadRealStandings();
+    // 注意: GitHub Pagesは静的サイトのため、サーバーサイドのスクレイピングは使用できません
+    // 実際のデータを取得するには、Vercelなどのサーバーが必要です
 }
 
-// 実際の順位表データを取得
-async function loadRealStandings() {
-    try {
-        // プレミアリーグのデータを取得（Football-Data.org API）
-        await loadPremierLeagueStandings();
-        
-        // Jリーグのデータを取得（API-Football経由、または別の方法）
-        await loadJLeagueStandings();
-    } catch (error) {
-        console.log('実際のデータの取得に失敗しました。サンプルデータを表示します。', error);
-    }
-}
-
-// プレミアリーグの順位表を取得
+// プレミアリーグの順位表を取得（GitHub Pages用：無効化）
+// 注意: GitHub Pagesは静的サイトのため、サーバーサイドのスクレイピングは使用できません
 async function loadPremierLeagueStandings() {
-    const loadingEl = document.getElementById('premier-loading');
-    if (loadingEl) loadingEl.style.display = 'block';
-    
-    try {
-        // 現在のホストからAPI URLを構築（ローカルと本番環境の両方に対応）
-        const apiUrl = `${window.location.origin}/api/premier`;
-        
-        const response = await fetch(apiUrl);
-        
-        if (!response.ok) {
-            throw new Error('サーバーからのデータ取得に失敗しました');
-        }
-        
-        const result = await response.json();
-        
-        if (result.success && result.data && result.data.length > 0) {
-            renderStandings('premier', result.data);
-            console.log('プレミアリーグの最新データを取得しました（スクレイピング）');
-            
-            // 成功通知を表示
-            showStandingsNotification('プレミアリーグの最新データを取得しました', 'success');
-        } else {
-            throw new Error('データが取得できませんでした');
-        }
-    } catch (error) {
-        console.log('プレミアリーグのデータ取得に失敗:', error);
-        console.log('サーバーが起動しているか確認してください: npm start');
-        console.log('サンプルデータを表示します。');
-        
-        // エラー通知を表示
-        showStandingsNotification('最新データの取得に失敗しました。サーバーを起動してください（npm start）。', 'info');
-    } finally {
-        if (loadingEl) loadingEl.style.display = 'none';
-    }
+    // GitHub Pagesでは使用しない（サンプルデータを表示）
+    console.log('GitHub Pagesではサーバーサイドのスクレイピングは使用できません。サンプルデータを表示します。');
 }
 
-// Jリーグの順位表を取得
+// Jリーグの順位表を取得（GitHub Pages用：無効化）
+// 注意: GitHub Pagesは静的サイトのため、サーバーサイドのスクレイピングは使用できません
 async function loadJLeagueStandings() {
-    const loadingEl = document.getElementById('jleague-loading');
-    if (loadingEl) loadingEl.style.display = 'block';
-    
-    try {
-        // 現在のホストからAPI URLを構築（ローカルと本番環境の両方に対応）
-        const apiUrl = `${window.location.origin}/api/jleague`;
-        
-        const response = await fetch(apiUrl);
-        
-        if (!response.ok) {
-            throw new Error('サーバーからのデータ取得に失敗しました');
-        }
-        
-        const result = await response.json();
-        
-        if (result.success && result.data && result.data.length > 0) {
-            renderStandings('jleague', result.data);
-            console.log('Jリーグの最新データを取得しました（スクレイピング）');
-            
-            // 成功通知を表示
-            showStandingsNotification('Jリーグの最新データを取得しました', 'success');
-        } else {
-            throw new Error('データが取得できませんでした');
-        }
-    } catch (error) {
-        console.log('Jリーグのデータ取得に失敗:', error);
-        console.log('サーバーが起動しているか確認してください: npm start');
-        console.log('サンプルデータを表示します。');
-        
-        // エラー通知を表示
-        showStandingsNotification('最新データの取得に失敗しました。サーバーを起動してください（npm start）。', 'info');
-    } finally {
-        if (loadingEl) loadingEl.style.display = 'none';
-    }
+    // GitHub Pagesでは使用しない（サンプルデータを表示）
+    console.log('GitHub Pagesではサーバーサイドのスクレイピングは使用できません。サンプルデータを表示します。');
 }
 
 // 順位表用の通知を表示
